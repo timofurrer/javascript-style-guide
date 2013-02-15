@@ -1346,6 +1346,8 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
   - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
 
+  **[[⬆]](#TOC)**
+
 ## <a name='translation'>Translation</a>
 
   Dieser Styleguide ist in den folgenden Sprachen erhältlich:
@@ -1353,13 +1355,19 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **Englisch**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - **Japanisch**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
 
+  **[[⬆]](#TOC)**
+
 ## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 
   - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
+  **[[⬆]](#TOC)**
+
 ## <a name='authors'>Contributors</a>
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+
+  **[[⬆]](#TOC)**
 
 
 ## <a name='license'>Lizenz</a>
