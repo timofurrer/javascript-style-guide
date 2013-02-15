@@ -530,7 +530,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 
 
-## <a name='conditionals'>Bedinungen und Gleichheit</a>
+## <a name='conditionals'>Bedingungen und Gleichheit</a>
 
   - Ziehe `===` und `!==`, `==` und `!=` vor.
   - Bedingungsausdrücke werden immer gezwungen der `ToBoolean` Methode ausgewertet zu werden. Diese folgt den folgenden einfachen Grundregeln:
@@ -694,7 +694,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     ∙∙var name;
     }
     ```
-  - Platziere ein Leerzeichen vor eine öffnende Klammer.
+  - Platziere ein Leerzeichen vor einer öffnenden Klammer.
 
     ```javascript
     // schlecht
@@ -853,7 +853,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Benutze immer `parseInt` for Zahlen und gebe immer eine Basis für die Typumwandlung an.
+  - Benutze immer `parseInt` für Zahlen und gebe immer eine Basis für die Typumwandlung an.
   - Wenn man aus [performance Gründen](http://jsperf.com/coercion-vs-casting/3) kein `parseInt` verweden will und ein `Bitshifting` benutzt, sollte man einen Kommentar hinterlassen, wieso man dies so gemacht hat.
 
     ```javascript
