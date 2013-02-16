@@ -1348,7 +1348,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   **[[⬆]](#TOC)**
 
-## <a name='translation'>Translation</a>
+## <a name='translation'>Übersetzungen</a>
 
   Dieser Styleguide ist in den folgenden Sprachen erhältlich:
 
