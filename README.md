@@ -1352,8 +1352,8 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   Dieser Styleguide ist in den folgenden Sprachen erhältlich:
 
-  - **Englisch**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **Japanisch**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :en: **Englisch**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - :jp: **Japanisch**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
 
   **[[⬆]](#TOC)**
 
@@ -1398,4 +1398,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **[[⬆]](#TOC)**
 
 # };
-
