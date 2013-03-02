@@ -30,7 +30,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   1. [ES5 Kompatibilität](#es5)
   1. [Testing](#testing)
   1. [Performance](#performance)
-  1. [Resourcen](#resources)
+  1. [Ressourcen](#resources)
   1. [In the Wild](#in-the-wild)
   1. [Übersetzungen](#translation)
   1. [The JavaScript Style Guide Guide](#guide-guide)
@@ -74,7 +74,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='objects'>Objekte</a>
 
-  - Benutze die `literal syntax` um Objekte zu erzeugen.
+  - Benutze die `literal syntax`, um Objekte zu erzeugen.
 
     ```javascript
     // schlecht
@@ -105,7 +105,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='arrays'>Arrays</a>
 
-  - Benutze die `literal syntax` um Arrays zu erzeugen.
+  - Benutze die `literal syntax`, um Arrays zu erzeugen.
 
     ```javascript
     // schlecht
@@ -190,7 +190,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
       'fast.';
     ```
 
-  - Wenn man im Programmverlauf eine Zeichenkette dynamisch zusammensetzen mpss, sollte man `Array#join` einer `string concatenation` vorziehen. Vorallem für den IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Wenn man im Programmverlauf eine Zeichenkette dynamisch zusammensetzen muss, sollte man `Array#join` einer `string concatenation` vorziehen. Vorallem für den IE. [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items,
@@ -296,7 +296,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='properties'>Eigenschaften</a>
 
-  - Benutze die Punktnotation um auf die Eigenschaften eines Objekts zuzugreifen.
+  - Benutze die Punktnotation, um auf die Eigenschaften eines Objekts zuzugreifen.
 
     ```javascript
     var luke = {
@@ -311,7 +311,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var isJedi = luke.jedi;
     ```
 
-  - Benutze die Indexnotation `[]` um auf die Eigenschaften eines Objekts zuzugreifen, sofern der Index eine Variable ist.
+  - Benutze die Indexnotation `[]`, um auf die Eigenschaften eines Objekts zuzugreifen, sofern der Index eine Variable ist.
 
     ```javascript
     var luke = {
@@ -331,7 +331,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='variables'>Variablen</a>
 
-  - Benutze immer `var` um Variablen zu deklarieren. Tut man dies nicht, werden die Variablen im globalen Namespace erzeugt - was nicht gewüscht werden sollte.
+  - Benutze immer `var`, um Variablen zu deklarieren. Tut man dies nicht, werden die Variablen im globalen Namespace erzeugt – was nicht gewüscht werden sollte.
 
     ```javascript
     // schlecht
@@ -341,7 +341,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var superPower = new SuperPower();
     ```
 
-  - Benutze immer nur ein `var` um mehrere aufeinanderfolgende Variablen zu deklarieren. Deklariere jede Variable auf einer eigenen Zeile.
+  - Benutze immer nur ein `var`, um mehrere aufeinanderfolgende Variablen zu deklarieren. Deklariere jede Variable auf einer eigenen Zeile.
 
     ```javascript
     // schlecht
@@ -355,7 +355,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
         dragonball = 'z';
     ```
 
-  - Deklariere Variablen ohne direkte Zuweisung immer als letztes. Dies ist vorallem hilfreich, wenn man später eine Variable anhand einer zuvor deklarieren Variable initialisieren möchte.
+  - Deklariere Variablen ohne direkte Zuweisung immer als letztes. Dies ist vorallem hilfreich, wenn man später eine Variable anhand einer zuvor deklarierten Variable initialisieren möchte.
 
     ```javascript
     // schlecht
@@ -440,7 +440,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='hoisting'>Hoisting</a>
 
-  - Variablendeklarationen werden vom Interpreter an den Beginn eines Gültigkeitbereichs genommen (`hoisting`) - Wohingegen die Zuweisung an der ursprünglichen Stelle bleibt.
+  - Variablendeklarationen werden vom Interpreter an den Beginn eines Gültigkeitbereichs genommen, genannt (`hoisting`). Wohingegen die Zuweisung an der ursprünglichen Stelle bleibt.
 
     ```javascript
     // Dies wird nicht funktionen (angenommen
@@ -533,15 +533,15 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='conditionals'>Bedingungen und Gleichheit</a>
 
-  - Ziehe `===` und `!==`, `==` und `!=` vor.
+  - Ziehe `===` und `!==` gegenüber `==` und `!=` vor.
   - Bedingungsausdrücke werden immer gezwungen der `ToBoolean` Methode ausgewertet zu werden. Diese folgt den folgenden einfachen Grundregeln:
 
     + **Objekte** werden als **true** gewertet
     + **Undefined** wird als **false** gewertet
     + **Null** wird als **false** gewertet
     + **Booleans** werden als **der Wert des Booleans** gewertet
-    + **Zahlen** werden als **false** gewertet sofern **+0, -0, or NaN** und sonst als **true**
-    + **Zeichenketten** werden als **false** gewertet sofern sie leer ist `''` und sonst als **true**
+    + **Zahlen** werden als **false** gewertet sofern **+0, -0, or NaN**, ansonsten als **true**
+    + **Zeichenketten** werden als **false** gewertet, sofern sie leer ist `''`, ansonsten als **true**
 
     ```javascript
     if ([0]) {
@@ -808,7 +808,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='semicolons'>Semikolons</a>
 
-  - **Jaa.**
+  - **Ja.**
 
     ```javascript
     // schlecht
@@ -855,7 +855,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     ```
 
   - Benutze immer `parseInt` für Zahlen und gebe immer eine Basis für die Typumwandlung an.
-  - Wenn man aus [performance Gründen](http://jsperf.com/coercion-vs-casting/3) kein `parseInt` verweden will und ein `Bitshifting` benutzt, sollte man einen Kommentar hinterlassen, wieso man dies so gemacht hat.
+  - Wenn man aus [Performancegründen](http://jsperf.com/coercion-vs-casting/3) kein `parseInt` verwenden will und ein `Bitshifting` benutzt, sollte man einen Kommentar hinterlassen, wieso dies gemacht wurde.
 
     ```javascript
     var inputValue = '4';
@@ -921,7 +921,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     }
     ```
 
-  - Benutze `camelCase` um Objekte, Funktionen und Instanzen zu benennen.
+  - Benutze `camelCase`, um Objekte, Funktionen und Instanzen zu benennen.
 
     ```javascript
     // schlecht
@@ -941,7 +941,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     });
     ```
 
-  - Benutze `PascalCase` um Klassen und Konstrukturen zu benennen.
+  - Benutze `PascalCase`, um Klassen und Konstrukturen zu benennen.
 
     ```javascript
     // schlecht
@@ -963,7 +963,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     });
     ```
 
-  - Benutze führende Untenstriche `_` um private Eigenschaften zu benennen.
+  - Benutze führende Untenstriche `_`, um private Eigenschaften zu benennen.
 
     ```javascript
     // schlecht
@@ -974,7 +974,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     this._firstName = 'Panda';
     ```
 
-  - Um eine Referenz an `this` zuzuweisen - benutze `_this`.
+  - Um eine Referenz an `this` zuzuweisen, benutze `_this`.
 
     ```javascript
     // schlecht
@@ -1022,7 +1022,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 ## <a name='accessors'>Zugriffsmethoden</a>
 
   - Zugriffsmethoden für Objekteigenschaften sind nicht von Nöten.
-  - Wenn man dennoch Zugriffsmethoden macht, benutze `getVal()` und `setVal('hello')`
+  - Macht man dennoch Zugriffsmethoden, benutze `getVal()` und `setVal('hello')`.
 
     ```javascript
     // schlecht
@@ -1038,7 +1038,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     dragon.setAge(25);
     ```
 
-  - Wenn die Eigenschaft ein Boolean ist, benutze `isVal()` oder `hasVal()`
+  - Wenn die Eigenschaft ein Boolean ist, benutze `isVal()` oder `hasVal()`.
 
     ```javascript
     // schlecht
@@ -1052,7 +1052,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     }
     ```
 
-  - Es ist in Ordnung `get()` und `set()` methoden zu erstellen, aber sei konsistent.
+  - Es ist in Ordnung `get()`- und `set()`-Methoden zu erstellen, aber sei konsistent.
 
     ```javascript
     function Jedi(options) {
@@ -1103,7 +1103,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     };
     ```
 
-  - Methoden könnten `this` zurückgeben um eine Methodenverkettung zu ermöglichen.
+  - Methoden können `this` zurückgeben, um eine Methodenverkettung zu ermöglichen.
 
     ```javascript
     // schlecht
@@ -1138,7 +1138,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     ```
 
 
-  - Es ist in Ordnung eine eigene `toString()` methode zu schreiben, aber man sollte sicher stellen, dass diese korrekt funktioniert und keine Nebeneffekte hat.
+  - Es ist in Ordnung eine eigene `toString()`-Methode zu schreiben, aber man sollte sicherstellen, dass diese korrekt funktioniert und keine Nebeneffekte hat.
 
     ```javascript
     function Jedi(options) {
@@ -1162,7 +1162,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   - Ein Modul sollte mit einem `!` beginnen. Dies stellt sicher, dass wenn in einem Modul das abschliessende Semikolon vergessen wurde, keine Fehler entstehen, wenn die Scripte zusammengeschnitten werden.
   - Eine Datei sollte in `camelCase` benannt sein, in einem Ordner mit dem selben Namen liegen und dem Namen entsprechen mit dem es exportiert wird.
-  - Benutze eine Methode `noConflict()` dass das exporte Module auf die vorhergehende Version setzt und diese zurück gibt.
+  - Benutze eine Methode `noConflict()`, welche das exportierte Modul auf die vorhergehende Version setzt und diese zurück gibt.
   - Deklariere immer `'use strict';` am Anfang des Moduls.
 
     ```javascript
@@ -1191,7 +1191,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='jquery'>jQuery</a>
 
-  - Stelle allen jQuery Objektvariablen ein `$` voran.
+  - Stelle allen jQuery-Objektvariablen ein `$` voran.
 
     ```javascript
     // schlecht
@@ -1201,7 +1201,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var $sidebar = $('.sidebar');
     ```
 
-  - Speichere `jQuery lookups` wenn sie mehrmals gebraucht werden.
+  - Speichere `jQuery lookups`, sofern sie mehrmals gebraucht werden.
 
     ```javascript
     // schlecht
@@ -1228,7 +1228,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     }
     ```
 
-  - Für DOM-Abfragen benutze `Cascading`: `$('.sidebar ul')` or parent > child `$('.sidebar > .ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Für DOM-Abfragen benutze `Cascading`: `$('.sidebar ul')` oder parent > child `$('.sidebar > .ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Benutze `find` mit `scoped jQuery object queries`
 
     ```javascript
@@ -1256,14 +1256,14 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='es5'>ECMAScript 5 Kompatibilität</a>
 
-  - Verweise auf [Kangax](https://twitter.com/kangax/)'s ES5 [Kompatibilitätstabelle](http://kangax.github.com/es5-compat-table/)
+  - Verweis auf [Kangax](https://twitter.com/kangax/)'s ES5 [Kompatibilitätstabelle](http://kangax.github.com/es5-compat-table/)
 
   **[[⬆]](#TOC)**
 
 
 ## <a name='testing'>Testing</a>
 
-  - **Jaa.**
+  - **Ja.**
 
     ```javascript
     function() {
@@ -1288,7 +1288,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   **[[⬆]](#TOC)**
 
 
-## <a name='resources'>Resourcen/a>
+## <a name='resources'>Ressourcen</a>
 
 
 **Lese dieses**
@@ -1335,7 +1335,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='in-the-wild'>In the Wild</a>
 
-  Dies ist eine Liste von Organisatzionen, welche diesen Styleguide benutzen. Sende uns einen `Pull request` oder öffne einen `issue` und wir werden dich der Liste hinzufügen.
+  Dies ist eine Liste von Organisationen, welche diesen Style Guide benutzen. Sende uns einen `Pull request` oder öffne einen `issue` und wir werden dich der Liste hinzufügen.
 
   - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
   - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
