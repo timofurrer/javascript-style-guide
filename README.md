@@ -373,7 +373,8 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var items = getItems(),
         goSportsTeam = true,
         dragonball,
-        i, length;
+        i,
+        length;
     ```
 
   - Weise den Wert einer Variable, wenn möglich, immer am Anfang des Gültigkeitsbereichs zu. Dies hilft Problemen mit der Variablendeklaration vorzubeugen.
