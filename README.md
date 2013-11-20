@@ -25,6 +25,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   1. [Namenskonventionen](#naming-conventions)
   1. [Zugriffsmethoden](#accessors)
   1. [Konstruktoren](#constructors)
+  1. [Events](#events)
   1. [Module](#modules)
   1. [jQuery](#jquery)
   1. [ES5 Kompatibilität](#es5)
@@ -101,6 +102,24 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
       hidden: true
     };
     ```
+  - Benutze wenn dann geeignete Synonyme für die reservierten Wörter.
+  
+    ```javascript
+    // schlecht
+    var superman = {
+      class: 'alien'
+    };
+
+    // schlecht
+    var superman = {
+      klass: 'alien'
+    };
+    
+    // gut
+    var superman = {
+      type: 'alien'
+    };
+    ```
     **[[⬆]](#TOC)**
 
 ## <a name='arrays'>Arrays</a>
@@ -141,7 +160,16 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     }
 
     // gut
-    itemsCopy = Array.prototype.slice.call(items);
+    itemsCopy = items.slice();
+    ```
+  
+  - Wenn du ein Array ähnliches Objekt kopieren möchtest, benutze `Array#slice`.
+    
+    ```javascript
+    function trigger() {
+      var args = Array.prototype.slice.call(arguments);
+      ...
+    }
     ```
 
     **[[⬆]](#TOC)**
@@ -373,8 +401,8 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     var items = getItems(),
         goSportsTeam = true,
         dragonball,
-        i,
-        length;
+        length,
+        i;
     ```
 
   - Weise den Wert einer Variable, wenn möglich, immer am Anfang des Gültigkeitsbereichs zu. Dies hilft Problemen mit der Variablendeklaration vorzubeugen.
@@ -671,6 +699,30 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
       return type;
     }
     ```
+  - Benutze wenn möglich die Prefixe `FIXME` oder `TODO` für die Kommentare. Sie erleichtert die Arbeit für andere Entwickler und sich selbst. So kann man Codestellen, die eine Verbesserung brauchen oder noch nicht implementiert sind, ohne grosse Mühe auffinden.
+  - Benutze `FIXME` um Probleme zu markieren
+    
+    ```javascript
+    function Calculator() {
+      
+      // FIXME: brauche eine globale Variable
+      total = 0;
+
+      return this;
+    }
+    ```
+  
+  - Benutze `TODO` um Hinweise für mögliche Lösungen für ein bestimmtes Problem zu geben, welches noch behoben werden muss.
+    
+    ```javascript
+    function Calculator() {      
+
+      // FIXME: dieses Member sollte über einen Parameter konfigurierbar sein
+      this.total = 0;
+
+      return this;
+    }
+    ```
 
     **[[⬆]](#TOC)**
 
@@ -773,7 +825,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
 ## <a name='leading-commas'>Führende Kommas</a>
 
-  - **Nein.**
+  - Führende Kommas: **Nein.**
 
     ```javascript
     // schlecht
@@ -801,6 +853,33 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
       heroName: 'Mr. Incredible',
       superPower: 'strength'
     };
+    ```
+    
+  - Zusätzliche Kommas am Ende einer Aufzählung: **Nein**. Denn dies kann zu Problemen mit IE6/7 und IE9 führen. Auch kann es in einigen Implementation on ES3 dazu führen, dass die Länge des Arrays um eins zu gross wird. Was in ES5 beschrieben wurde: [source](http://es5.github.io/#D)
+    > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+
+    ```javascript
+    // schlecht
+    var hero = {
+      firstName: 'Kevin',
+      lastName: 'Flynn',
+    };
+
+    var heroes = [
+      'Batman',
+      'Superman',
+    ];
+
+    // gut
+    var hero = {
+      firstName: 'Kevin',
+      lastName: 'Flynn'
+    };
+
+    var heroes = [
+      'Batman',
+      'Superman'
+    ];
     ```
 
     **[[⬆]](#TOC)**
@@ -1156,7 +1235,38 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
     ```
 
     **[[⬆]](#TOC)**
+    
+    
+## <a name='events'>Events</a>
 
+  - Wenn man Daten zu einem Event hinzufügen möchte, dann soll man einen `hash` einem `raw value` vorziehen. Denn es lässt einen einfach weitere Parameter hinzuzufügen ohne den Eventhandler für den existieren Parameter zu bearbeiten.
+    
+    ```javascript
+    // schlecht
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', function(e, listingId) {
+      // do something with listingId
+    });
+    ```
+    
+    Bevorzuge:
+    
+    ```javascript
+    // gut
+    $(this).trigger('listingUpdated', { listingId : listing.id });
+
+    ...
+    
+    $(this).on('listingUpdated', function(e, data) {
+      // do something with data.listingId
+    });
+    ```
+    
+    **[[⬆]](#TOC)**
+    
 
 ## <a name='modules'>Module</a>
 
@@ -1305,6 +1415,7 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
+  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
 
 **Bücher**
 
@@ -1316,6 +1427,10 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
   - [JavaScript Web Applications](http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
   - [Pro JavaScript Techniques](http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
   - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
+  - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
+  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+  - [JSBooks](http://jsbooks.revolunet.com/)
 
 **Blogs**
 
@@ -1337,16 +1452,26 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   Dies ist eine Liste von Organisationen, welche diesen Style Guide benutzen. Sende uns einen `Pull request` oder öffne einen `issue` und wir werden dich der Liste hinzufügen.
 
-  - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
-  - **GoCardless**: [gocardless/javascript](//github.com/gocardless/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
-  - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
-  - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
+  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
+  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
+  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
+  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
+  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
+  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
+  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
+  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
+  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
+  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
+  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
+  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
+  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
   - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
+  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
+  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
+  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
+  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
+  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
+  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
   **[[⬆]](#TOC)**
 
@@ -1356,6 +1481,12 @@ Original Repository: [airbnb/javascript](https://github.com/airbnb/javascript)
 
   - :en: **Englisch**: [airbnb/javascript](https://github.com/airbnb/javascript)
   - :jp: **Japanisch**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :br: **Portugisisch**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - :cn: **Chinesisch**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :es: **Spanisch**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Koreanisch**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :fr: **Französisch**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
+
 
   **[[⬆]](#TOC)**
 
